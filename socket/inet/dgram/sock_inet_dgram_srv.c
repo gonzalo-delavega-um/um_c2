@@ -53,8 +53,8 @@ struct in_addr {
 		htonl - host to network (long 32b)
 		ntohs ntohl - network to host short/long
 		ENDIAN:
-			big-endian (inversa)		host
-			litle-endian (correcta)		network
+			big-endian (mas significativos en direcciones bajas)		host
+			litle-endian (menos significativos en direcciones bajas)		network
 	*/
 
 	//asociamos la direccion con el socket
