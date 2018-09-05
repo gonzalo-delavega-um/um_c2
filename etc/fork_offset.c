@@ -23,10 +23,12 @@ int main(int argc, char** argv){
 				return 1;
 			}
 			write(fd, "HIJO: ->", 8);
+			printf("Offset del hijo: %d\n", lseek(fd, 0, SEEK_CUR));
 			return 0;
 	}
 	wait(&status);
 	write(fd, "Donde-stoy?", 11);
+	printf("Offset del padre: %d\n", lseek(fd, 0, SEEK_CUR));
 	return 0;
 }
 
