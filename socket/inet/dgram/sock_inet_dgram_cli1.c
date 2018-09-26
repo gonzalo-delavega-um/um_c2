@@ -47,8 +47,6 @@ struct in_addr {
 	dir.sin_port = htons(1234);
 	dir.sin_addr.s_addr=inet_addr(*(argv+1));
 
-	//enviamos los datos
-	//	count=sprintf(buffer,"hola mundo");
 
 	while(count=read(STDIN_FILENO,buffer,BUF_SIZE)){
 		*(buffer+count)='\0'; // importante para la comparacion

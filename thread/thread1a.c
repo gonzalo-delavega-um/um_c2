@@ -21,17 +21,15 @@ void* funcion(void*);
 int main(int argc, char** argv) {
 
 	char *error;
-	char cmd[128];
-	printf("PID: %d\n", getpid());
 
-//	sprintf(cmd, "ps -To pid,tid,tgid,tty,time,comm -p %d", getpid());
-//	sprintf(cmd, "cat /proc/%d/task", getpid());
-//	sprintf(cmd, "top -Hbn1 -p %d", getpid());
-//	sprintf(cmd, "ps -L -p %d", getpid());
+	int status = 0;
 
+	// creamos el id de hilo (pthread_d es un long int)
 	pthread_t thread_id;
 
 	printf("Tamanio del id: %ld\n",sizeof(pthread_t));
+
+	//creamos un hilo
 
 	if(pthread_create(&thread_id, NULL, funcion, NULL)){
 		error="pthread_create";
@@ -40,15 +38,11 @@ int main(int argc, char** argv) {
 
 	printf("El id del hilo es: %ld\n",thread_id);
 
-	//esperamos a que el hilo "hijo" termine: join (equivalente al wait)
-	system(cmd);
-	pthread_join(thread_id,NULL);
-		//id del hilo a esperar
-		// puntero de retorno, o NULL si el hilo no retorna nada
+	pthread_join(thread_id,(void*)&status);
+	printf("Estado de terminacion: %d\n", status);
 
 	//terminamos el hilo principal:
 	printf("terminando el hilo principal...\n");
-	//exit(1);
 	pthread_exit(NULL);
 
 	return 0; //termina el proceso -> tambien terminan todos los hilos
@@ -59,11 +53,9 @@ err:
 }
 
 void* funcion(void* dato){
-	sleep(200);
-	//dato es un argumento pasado al hilo
+	sleep(2);
 	printf("Ejecutando esta linea desde el hilo (TID: %li)\n",pthread_self());
-	//terminamos al hilo:
 	printf("terminando el hilo creado...\n");
-	pthread_exit(NULL);
+	return (void**)1122;
 }
 

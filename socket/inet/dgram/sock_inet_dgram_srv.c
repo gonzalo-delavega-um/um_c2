@@ -84,4 +84,3 @@ err:
 	fprintf(stderr,"%s %d %s\n",error,errno,strerror(errno));
 }
 
-// https://tmate.io/t/ro-bxSy6AiKE6wKjHoDHJ6WOjXft
