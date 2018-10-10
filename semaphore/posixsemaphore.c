@@ -19,7 +19,7 @@
 
 #define SEM_NAME "/sema"
 
-int main(void){
+int main(int argc, char **argv){
 	char comando[10];
 	int i;
 	int valor;
