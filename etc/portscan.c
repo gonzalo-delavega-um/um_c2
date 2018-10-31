@@ -1,7 +1,6 @@
 /******************************************* 
 * Author     : Diego Cordoba / @d1cor      *
-* Purpose    : CLA - carreralinux.com.ar   *
-* Contact    : diegocordoba.tk             *
+* Purpose    : juncotic.com / um.edu.ar    *
 *******************************************/
 
 #include<stdio.h>
