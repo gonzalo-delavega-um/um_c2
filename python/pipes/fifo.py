@@ -1,6 +1,6 @@
 import os, time, sys
 
-pipe_name = 'pipe_test'
+pipe_name = '/tmp/pipe_test'
 
 def child( ):
     pipeout = os.open(pipe_name, os.O_WRONLY)

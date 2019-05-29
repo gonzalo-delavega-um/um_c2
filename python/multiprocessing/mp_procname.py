@@ -8,7 +8,7 @@ def child2():
 if __name__=="__main__":
    print("Parent ID",os.getpid())
    p1=Process(target=child1,name='Child 1')
-   p2=Process(target=child2,name='Child 2')
+   p2=Process(target=child2)
    p1.start()
    p2.start()
    p1.join()

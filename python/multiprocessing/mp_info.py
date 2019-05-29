@@ -1,10 +1,14 @@
 import multiprocessing
 from multiprocessing import Process
 import os
+
 def child1():
      print("Child 1",os.getpid())
+
 def child2():
         print("Child 2",os.getpid())
+
+
 if __name__=="__main__":
    print("Parent ID",os.getpid())
    p1=Process(target=child1)
