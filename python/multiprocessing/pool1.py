@@ -16,8 +16,12 @@ def cube(x):
 
 pool = Pool(processes=4)
 
+input("Antes que nada, abre otra terminal y ejecuta 'ps fax'... ¿que ves?")
+
+
 input("Pool.map")
 results = pool.map(cube, range(15))
+print(results)
 
 
 input("Pool.apply")
@@ -31,13 +35,11 @@ for x in range(15):
 print(results)
 
 
-input("Pool.map_assync")
+input("Pool.map_async")
 results=[]
-results.append(pool.map_async(cube, range(15)))
-#results.get()
+results = pool.map_async(cube,range(15)).get()
 print("espereando...")
-time.sleep(1)
-print(results[:-1])
+print(results)
 
 
 input("Pool.apply async...")
@@ -46,6 +48,5 @@ for x in range(15):
     results.append(pool.apply_async(cube,args=(x,)).get())
 
 print("espereando...")
-time.sleep(1)
 print(results)
 
