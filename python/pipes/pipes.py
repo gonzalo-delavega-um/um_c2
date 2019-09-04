@@ -29,7 +29,7 @@ def f2():
     r,w = os.pipe()
     pid = os.fork()
     if pid:
-        os.close(w)
+#        os.close(w)
         r = os.fdopen(r)
         print("padre leyendo...")
         while True:

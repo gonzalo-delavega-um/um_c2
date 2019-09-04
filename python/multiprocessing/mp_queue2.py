@@ -17,8 +17,8 @@ if __name__ == "__main__":
    while q:
       print("Padre en el while...")
       print(q.get())
-      if q.empty():
-          print("Cola vacia... saliendo")
-          break
+#      if q.empty():
+#          print("Cola vacia... saliendo")
+#          break
    p1.join()
    p2.join()
