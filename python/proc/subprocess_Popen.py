@@ -4,8 +4,21 @@ import time
 import sys
 import os
 
+
+def usage(progname):
+    print("\nUsage:\n\tpython3 %s nombre_funcion\n\n" % progname)
+    os._exit(1)
+
+if len(sys.argv)==1:
+    usage(sys.argv[0])
+
+
+def ej0():
+    process = sp.Popen(["ls", "-l", "/"])
+
+
 """
-se llama al comando cat
+se llama al comando ls
 tanto stdout como stderr se direccionan al PIPE
 communicate ejecuta el comando y devuelve las dos salidas en tupla
 probar generar un error
@@ -115,5 +128,5 @@ def ej12():
         print(line)
 
 
-ej11()
-
+funcion = sys.argv[1]
+globals()[funcion]()
