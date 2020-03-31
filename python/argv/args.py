@@ -4,6 +4,7 @@ import sys
 
 # it's easy to print this list of course:
 print (sys.argv)
+print (sys.argv[1:])
 
 # or it can be iterated via a for loop:
 
