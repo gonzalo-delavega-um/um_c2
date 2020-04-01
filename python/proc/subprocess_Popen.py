@@ -13,6 +13,9 @@ if len(sys.argv)==1:
     usage(sys.argv[0])
 
 
+"""
+Ejecuta un "ls -l /" y su resultado lo muestra por pantalla
+"""
 def ej0():
     process = sp.Popen(["ls", "-l", "/"])
 
@@ -31,7 +34,8 @@ def ej1():
 
 
 """
-si shell es true el comando se ejecutara en una shell, es recomendable pasarlo como string. Si no, por default es false, hay que pasar la lista.
+si shell es true el comando se ejecutara en una shell, es recomendable pasarlo como string.
+Si no, por default es false, hay que pasar la lista.
 """
 def ej2():
     sp.Popen(["ps", "fax"])
@@ -104,16 +108,16 @@ def ej9():
 
 #usamos Popen para hacer ping, retorna un objeto Popen que leemos
 def ej10():
-    salida = sp.Popen(["ping", "-c 4", "google.com"], stdout=sp.PIPE, universal_newlines=True)
+    salida = sp.Popen(["ping", "-c 4", "1.1.1.1"], stdout=sp.PIPE, universal_newlines=True)
     salida.wait()
     print("este es el proceso padre...")
     print(salida.communicate()[0])
 
-
 #ahora usamos call, bloqueante, retorna un codigo de terminacion
 def ej11():
-    salida = sp.call(["ping", "-c 4", "google.com"], stdout=sp.PIPE, universal_newlines=True)
-#    salida.wait()
+    salida = sp.Popen(["ping", "-c 4", "google.com"], stdout=sp.PIPE, universal_newlines=True)
+    #salida = sp.call(["ping", "-c 4", "google.com"], stdout=sp.PIPE, universal_newlines=True)
+    salida.wait()
     print("este es el proceso padre...")
     print(salida)
 
@@ -129,4 +133,5 @@ def ej12():
 
 
 funcion = sys.argv[1]
+print("========================================== Ejecutando %s" % funcion)
 globals()[funcion]()

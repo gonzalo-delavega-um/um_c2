@@ -7,7 +7,7 @@ while (command != "exit"):
     line = " "
     while line:
         line = handle.read()
-        print(line)
+        print("--->" + line)
     handle.close()
 
 print("bye!")
