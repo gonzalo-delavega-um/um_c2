@@ -1,5 +1,7 @@
+#!/usr/bin/python
 
 import os
 
-os.fork()
-print("Hola Mundo")
+retorno=os.fork()
+
+print("Hola Mundo, retorno: %d" % retorno)

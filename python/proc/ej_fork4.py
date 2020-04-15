@@ -3,8 +3,8 @@
 from os import fork
 
 def main():
-    fork()
-    fork() and fork()
+    #fork()
+    fork() or fork()
 
     print("Forkeando!!")
 

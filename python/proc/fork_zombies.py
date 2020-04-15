@@ -14,7 +14,6 @@ def main():
 
 	print("soy el padre")
 
-	#hacerlo primero con ps solo, para ver el defunct
 	print(subprocess.check_output(["ps", "fax"], universal_newlines=True))
 	time.sleep(2)
 	print("_________________________________________________________________")

@@ -7,11 +7,12 @@ def f_hijo():
         print("Hijo procesando... "+str(i))
         time.sleep(1)
     os._exit(0)
-    """ os._exit() llama al _exit() de posix, 
+    """
+    os._exit() llama al _exit() de posix, 
     mientras que sys.exit() termina normalmente el programa python
         esto permite también que la ejecución vuelva al programa anterior (como un return)
         es igual a SystemExit() que sale del intérprete python
-        """
+    """
 
 pid = os.fork()
 
