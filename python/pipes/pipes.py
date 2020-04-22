@@ -1,5 +1,17 @@
 import os, sys, time
 
+def f0():
+    r, w = os.pipe() 
+    r = os.fdopen(r)
+    w = os.fdopen(w, 'w')
+    msg = input("Introduzca un mensaje:")
+    w.write(msg)
+    w.close()
+    print("Mensaje leido: %s" % r.readline())
+    r.close()
+
+
+
 def f1():
     # file descriptors r, w for reading and writing
     r, w = os.pipe() 
@@ -11,6 +23,7 @@ def f1():
         print("Parent reading")
         cadena = r.readline()
         print("text = %s\n" % cadena)
+        os.wait()
         sys.exit(0)
 
     else:
@@ -29,7 +42,7 @@ def f2():
     r,w = os.pipe()
     pid = os.fork()
     if pid:
-#        os.close(w)
+        os.close(w)
         r = os.fdopen(r)
         print("padre leyendo...")
         while True:
@@ -49,4 +62,4 @@ def f2():
             
     
 
-f2()
+f1()
