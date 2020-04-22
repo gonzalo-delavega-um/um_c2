@@ -1,7 +1,7 @@
 import signal, os, time
 
 def handler(signum, frame):
-    print('Mmmmm... no me estoy muriendo creo...'+str(signum)+"-"+ str(frame))
+    print('Mmmmm... no me estoy muriendo creo...'+str(signum)+"-"+ str(frame)+"\n")
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 print(signal.getsignal(signal.SIGINT))
