@@ -5,7 +5,6 @@ pipe_name = '/tmp/pipe_test'
 
 def escritor( ):
     pipeout = os.open(pipe_name, os.O_WRONLY)
-    pipeout = open(pipe_name, 'w')
     counter = 0
     while True:
         print("escribiendo....")
