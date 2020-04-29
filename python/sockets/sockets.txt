@@ -1,0 +1,67 @@
+
+Sockets
+
+tipos
+	unix -> archivos / filesystem
+	inet -> stack de protocolos
+		Datagrama -> dgram -> udp
+		Flujo -> stream    -> tcp
+
+
+Modelo TCP/IP:
+
+
+-----------
+Aplicacion 7  proto de app 
+-----------
+Transporte 4  puertos (tcp/udp)
+-----------
+Red        3  direcciones IP (ip)
+-----------
+Enlace     2  direcciones MAC (ethernet)
+-----------
+
+
+
+app: protocolos http, dns, ssh, ftp, smtp, pop, imap, ...
+tr: confiabilidad de los datos
+	tcp - transmission control protocol
+	udp - user datagram protocol
+red: direccionamiento y enrutamiento
+enlace/link: comunicacion fisica
+
+
+                                  dato_app
+                              udp|dato_app
+                           ip|udp|dato_app
+                       eth|ip|udp|dato_app
+
+
+TCP handshake
+cliente                         Servidor
+   |                               |
+   |  -> syn                       |
+   |               <- ack + syn    |
+   |  -> ack                       |
+   |                               |
+   |     ... trafico ...           |
+   |     ... trafico ...           |
+   |     ... trafico ...           |
+   |     ... trafico ...           |
+   |                               |
+   |                               |
+   |  -> fin                       |
+   |              <- ack + fin     |
+   |  -> ack                       |
+   |                               |
+   |                               |
+
+
+Socket de red:
+	direccion ip destino
+	direccion ip origen
+	puerto destino
+	puerto origen
+	protocolo udp
+
+
