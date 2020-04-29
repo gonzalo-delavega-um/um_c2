@@ -9,12 +9,20 @@ pipe_name = '/tmp/pipe_test'
 
 def child( ):
     pipeout = os.open(pipe_name, os.O_WRONLY)
-    #pipeout = open(pipe_name, 'w')
     counter = 0
     while True:
         os.write(pipeout, b'Number %03d\n' % counter)
-#        pipeout.write("holas...")
         counter = (counter+1) % 5
+        time.sleep(1)
+
+
+def child_v2( ):
+    pipeout = open(pipe_name, 'w')
+    counter = 0
+    while True:
+        pipeout.write("Number %03d\n" % counter)
+        counter = (counter+1) % 5
+        pipeout.flush()
         time.sleep(1)
 
 def parent( ):
@@ -33,4 +41,4 @@ pid = os.fork()
 if pid != 0:
     parent()
 else:       
-    child()
+    child_v2()
