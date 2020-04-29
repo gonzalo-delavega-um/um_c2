@@ -50,6 +50,7 @@ def f2():
             if line:
                 print("Padre leyendo: %s" % line)
             else:
+                os.wait()
                 print("Terminando padre...")
                 sys.exit(0)
     else:
@@ -59,7 +60,12 @@ def f2():
         for line in sys.stdin:
             w.write("%s" % line)
             w.flush()
+        print("Encontrado EOF en el stdin...")
+        w.close()
+        time.sleep(3)
+        print("Hijo terminando...")
+        ### otras 10mil lineas
             
     
 
-f1()
+f2()
