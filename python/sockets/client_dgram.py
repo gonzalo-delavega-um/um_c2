@@ -8,6 +8,8 @@ except socket.error:
     print('Failed to create socket')
     sys.exit()
 
+# pyhton client_dgram.py ip_server puerto_server
+
 host = sys.argv[1]
 port = int(sys.argv[2])
 
@@ -21,7 +23,14 @@ while(1) :
         d = s.recvfrom(1024)
         reply = d[0]
         addr = d[1]
-        
+
+        """
+        Equivalente a:
+                reply,addr = s.recvfrom(1024)
+                reply: dato
+                addr: (direccion, puerto)
+        """
+
         print('Server reply : ' + reply.decode("ascii"))
 
     except socket.error:
