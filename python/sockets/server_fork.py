@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import socket, os
+import socket, os, sys
 
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -7,7 +7,7 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # get local machine name
 #host = socket.gethostname()
 host = ""
-port = 1234
+port = int(sys.argv[1])
 
 # bind to the port
 serversocket.bind((host, port))
@@ -30,5 +30,5 @@ while True:
             print("Recibido: %s" % msg.decode())
             msg = "Ok"+" \r\n"
             clientsocket.send(msg.encode("ascii"))
-        clientsocket.close()
+        #clientsocket.close()
 

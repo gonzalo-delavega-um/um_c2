@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-import socket, os, multiprocessing
+import socket, os, multiprocessing, sys
 
-def mp_server(sock):
-    print("Launching thread...")
+def mp_server(c):
+    print("Launching proc...")
+    sock,addr = c
     while True:
         msg = sock.recv(1024)
-        print("Recibido: %s" % msg.decode())
+        print("Recibido: '%s' de %s" % (msg.decode(), addr))
         msg = "Ok"+" \r\n"
         sock.send(msg.encode("ascii"))
         #clientsocket.close()
@@ -13,12 +14,13 @@ def mp_server(sock):
 
 
 # create a socket object
+# crea un objeto tipo socket para usarlo en la comunicación
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
 #host = socket.gethostname()
 host = ""
-port = 1234
+port = int(sys.argv[1])
 
 # bind to the port
 serversocket.bind((host, port))
@@ -28,12 +30,14 @@ serversocket.listen(5)
 
 while True:
     # establish a connection
-    clientsocket,addr = serversocket.accept()
+    cliente = serversocket.accept()
+
+    clientsocket, addr = cliente
 
     print("Got a connection from %s" % str(addr))
 
     msg = 'Thank you for connecting'+ "\r\n"
     clientsocket.send(msg.encode('ascii'))
-    child = multiprocessing.Process(target=mp_server, args=(clientsocket,))
+    child = multiprocessing.Process(target=mp_server, args=(cliente,))
     child.start()
 

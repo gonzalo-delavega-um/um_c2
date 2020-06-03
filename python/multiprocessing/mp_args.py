@@ -1,11 +1,13 @@
 
 
-import multiprocessing
 from multiprocessing import Process
+
 def testing():
     print("Works")
+
 def square(n):
     print("The number squares to ",n**2)
+
 def cube(n):
     print("The number cubes to ",n**3)
 
