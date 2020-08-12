@@ -30,7 +30,7 @@ while True:
     address = addr[0]
     port = addr[1]
     print("Address: %s - Port %d" % (address, port))
-    print("Recibido: "+data.decode("ascii"))
+    print("Recibido: "+data.decode())
     msg = input('Enter message to send : ').encode()
     serversocket.sendto(msg, addr)
     time.sleep(1)

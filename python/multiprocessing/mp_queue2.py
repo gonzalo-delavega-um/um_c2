@@ -16,9 +16,12 @@ if __name__ == "__main__":
    p2.start()
    while q:
       print("Padre en el while...")
-      print(q.get())
-#      if q.empty():
-#          print("Cola vacia... saliendo")
-#          break
+      try:
+          print("P: " + q.get(True, 2))
+      except Exception as e:
+          print("Cola vacía... saliendo")
+          print(e)
+          break
+
    p1.join()
    p2.join()

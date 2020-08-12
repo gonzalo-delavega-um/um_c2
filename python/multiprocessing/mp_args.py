@@ -15,17 +15,17 @@ def multip(n,m):
     print("The product is: ", n*m)
 
 if __name__=="__main__":
-    p1=Process(target=square,args=(7,))
-    p2=Process(target=cube,args=(3,))
-    p3=Process(target=testing)
-    p4=Process(target=multip,args=(4,5))
 
-    p1.start()
-    p2.start()
-    p3.start()
-    p4.start()
-    p1.join()
-    p2.join()
-    p3.join()
-    p4.join()
+    p = []
+    p[0]=Process(target=square,args=(7,))
+    p[1]=Process(target=cube,args=(3,))
+    p[2]=Process(target=testing)
+    p[3]=Process(target=multip,args=(4,5))
+
+    for i in range(4):
+        p[i].start()
+
+    for i in range(4):
+        p[i].join()
+
     print("We're done")

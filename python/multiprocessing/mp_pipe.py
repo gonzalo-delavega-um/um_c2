@@ -2,7 +2,7 @@ from multiprocessing import Process, Pipe
 
 def f(conn):
     conn.send([42, None, 'hello'])
-    print("H:Hijo recibiendo: "+conn.recv())
+    print("H: Hijo recibiendo: "+conn.recv())
     conn.send("hola mundo")
     conn.close()
 

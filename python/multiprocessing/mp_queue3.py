@@ -16,8 +16,9 @@ def lector(q,pipe_r):
     valor = pipe_r.recv() # sincronismo ?
     pipe_r.close()
     while q:
-        print("Lector leyendo: %s" % q.get())
-        if q.empty():
+        try:
+            print("Lector leyendo: %s" % q.get(True, 1))
+        except:
             print("Cola vacia... saliendo")
             break
 

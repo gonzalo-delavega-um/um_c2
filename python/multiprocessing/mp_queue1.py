@@ -1,4 +1,5 @@
 import multiprocessing
+
 def evenno(numbers, q):
     for n in numbers:
         if n % 2 == 0:
@@ -11,4 +12,8 @@ if __name__ == "__main__":
    p.start()
    p.join()
    while q:
-      print(q.get())
+       try:
+           print(q.get(True, 1))
+       except Exception as e:
+           print("Nada en la cola... saliendo.")
+           break

@@ -31,7 +31,7 @@ while(1) :
                 addr: (direccion, puerto)
         """
 
-        print('Server reply : ' + reply.decode("ascii"))
+        print('Server reply : ' + reply.decode())
 
     except socket.error:
         print('Error Code : ' + str(msg[0]) + ' Message ' + msg[1])

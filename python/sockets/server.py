@@ -22,5 +22,6 @@ while True:
     print("Got a connection from %s" % str(addr))
     
     msg = 'Thank you for connecting'+ "\r\n"
-    clientsocket.send(msg.encode('ascii'))
+    #clientsocket.send(msg.encode('ascii'))
+    clientsocket.send(msg.encode('utf-8'))
     clientsocket.close()

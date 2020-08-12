@@ -1,0 +1,73 @@
+
+Computación 2:
+
+Procesos paralelos y concurrentes
+
+subprocess
+	run
+	call
+	Popen
+
+os.fork()
+	retorno (0 en el hijo, PID del hijo en el padre)
+	zombies -> wait / waitpid
+
+signal - comunicación de procesos (asincronica)
+	setear un handler
+		-> ignorar la señal (KILL, TERM...)
+		-> realizar la accion por defecto
+		-> ejecutar una función (handler)
+		signal.signal() seteamos la señal
+		signal.kill() enviamos una señal
+
+os.pipe()
+	tuberia que conecta dos procesos (relacionados)
+	entrada y salida
+	r, w = os.pipe()
+	productor-consumidor
+
+fifo (named pipe)
+	memoria secundaria (archivo en disco)
+	conecta a procesos que conocen el path/ruta al archivo
+
+Socket
+	inet (cliente / servidor) Internet
+		DGRAM -> udp (datagrama) - los nodos envian y si llega bien, si no, también | no confiable
+			dns (consultas), snmp, ...
+		STREAM -> tcp (flujo) acuse de recibo (ack), handshake de conexion | confiable
+			http/https, ssh, smtp, imap, pop, xmpp, dns (transferencia de zona)...
+	unix -> socket en archivo
+
+	socket + fork / multiprocessing / subprocess / threading
+	
+	Resumen de las funciones:
+		STREAM:
+			Servidor:
+				crear el socket (socket.socket)
+				cargar host y puerto
+				asociar host y puerto con el socket -> socket.bind()
+				atender conexiones -> socketcreado.accept() . . . . . . . 
+				socket_cliente.recv() y socket_cliente.send()
+
+			Cliente:
+				crear el socket -> socket.socket()
+				cargar host y puerto al cual vamos a conectar
+				socket_creado.connect() conecta al servidor
+
+		DGRAM
+			Servidor:
+				crear el socket -> socket.socket()
+				cargar host y puerto
+				asociar host y puerto al socket -> socket_creado.bind()
+				leer y enviar info con socket_creado.recvfrom() y socket_creado.sendto()
+
+			Cliente:
+				crear el socket -> socket.socket()
+				cargar host y puerto del servidor al que conectarse
+				leer y enviar info con socket_creado.recvfrom() y socket_creado.sendto()
+
+Multiprocessing
+	creación de procesos hijos
+	interfaz simil "threading" para creacion de procesos
+	pipes
+	colas de mensajes
