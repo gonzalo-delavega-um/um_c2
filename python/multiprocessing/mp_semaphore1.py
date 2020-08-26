@@ -8,6 +8,7 @@ import time
 
 def EntraAuto(slots,entra,entraL):
         slots.acquire()
+        print("------------------------------------> Entró auto! Slots: %d" % slots.get_value())
         entraL.acquire()
         entra.value = entra.value+1
         entraL.release()
@@ -15,6 +16,7 @@ def EntraAuto(slots,entra,entraL):
 
 def SaleAuto(slots,sale,saleL):
         slots.release()
+        print("------------------------------------> Salio auto! Slots: %d" % slots.get_value())
         saleL.acquire()
         sale.value = sale.value+1
         saleL.release()
@@ -26,16 +28,12 @@ def entrando(slots,entra, entraL):
         time.sleep(1)
         incomingCar = multiprocessing.Process(target=EntraAuto, args=(slots,entra,entraL))
         incomingCar.start()
-        incomingCar.join()
-        print("------------------------------------> Entró auto! Slots: %d" % slots.get_value())
 
 def saliendo(slots,sale, saleL):
     while(True):
         time.sleep(3)
         outgoingCar = multiprocessing.Process(target=SaleAuto, args=(slots,sale,saleL))
         outgoingCar.start()
-        outgoingCar.join()
-        print("------------------------------------> Salio auto! Slots: %d" % slots.get_value())
 
 
 if __name__=="__main__":
