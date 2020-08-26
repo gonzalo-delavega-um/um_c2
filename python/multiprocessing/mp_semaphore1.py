@@ -1,4 +1,6 @@
-# An example python program using semaphore provided by the python multiprocessing module
+"""
+    Simulador de playa de estacionamiento
+"""
 
 import multiprocessing
 import time
@@ -18,9 +20,8 @@ def SaleAuto(slots,sale,saleL):
         saleL.release()
         print("<<<<< Saliendo auto: %d" % (sale.value))
 
-# Process that simulates the entry of cars into the parking lot
+
 def entrando(slots,entra, entraL):
-    # Creates multiple threads inside to simulate cars that are entra
     while(True):
         time.sleep(1)
         incomingCar = multiprocessing.Process(target=EntraAuto, args=(slots,entra,entraL))
@@ -28,9 +29,7 @@ def entrando(slots,entra, entraL):
         incomingCar.join()
         print("------------------------------------> Entró auto! Slots: %d" % slots.get_value())
 
-# Process that simulates the exit of cars from the parking lot
 def saliendo(slots,sale, saleL):
-    # Creates multiple threads inside to simulate cars taken out from the parking lot
     while(True):
         time.sleep(3)
         outgoingCar = multiprocessing.Process(target=SaleAuto, args=(slots,sale,saleL))
@@ -40,7 +39,7 @@ def saliendo(slots,sale, saleL):
 
 
 if __name__=="__main__":
-    # Start the parking eco-system
+
     entra = multiprocessing.Value('d', 0)
     sale = multiprocessing.Value('d', 0)
 
