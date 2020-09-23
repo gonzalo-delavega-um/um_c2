@@ -1,7 +1,7 @@
 import threading, time
 
-NTHREADS=5
-NITER=1000000
+NTHREADS=6 # numero de threads
+NITER=1000000 # numero de iteraciones
 
 contador=0
 
@@ -13,14 +13,13 @@ def count():
         contador = tmp
 
 
-
 hilos = []
-for i in range(5):
+for i in range(NTHREADS):
     hilos.append(threading.Thread(target=count, ))
     hilos[-1].start()
 
 
-for i in range(5):
+for i in range(NTHREADS):
     hilos[i].join()
 
 if (contador != NTHREADS*NITER):

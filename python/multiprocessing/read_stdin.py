@@ -2,7 +2,7 @@
 # starting a child process closes standard file descriptors
 # to use them, you need re-open 
 
-import sys,os,multiprocessing
+import sys,multiprocessing
 
 def func():
     sys.stdin = open(0)

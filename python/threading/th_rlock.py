@@ -3,11 +3,11 @@ import threading
 num = 0
 lock = threading.Lock()
 
-lock.acquire()
-num += 1
-lock.acquire() # Esto se bloqueará
-num += 2
-lock.release()
+# lock.acquire()
+# num += 1
+# lock.acquire() # Esto se bloqueará
+# num += 2
+# lock.release()
 
 
 # Con RLock, no se bloquea

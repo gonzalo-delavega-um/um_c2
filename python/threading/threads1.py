@@ -2,7 +2,16 @@ import sys
 import threading
 import time
 
-DELAY=5
+"""
+    Python threads:
+        _thread
+        threading trabaja un poco más "arriba", abstracción de _thread
+
+    LWP - Light Weight Process - "proceso ligero"
+"""
+
+
+DELAY=50
 
 def thread_function(name):
     print("Iniciando hilo %s" % name)
@@ -14,7 +23,7 @@ if __name__ == "__main__":
 
     print("Iniciando programa principal, antes de crear el thread")
 
-    x = threading.Thread(target=thread_function, args=(1,))
+    x = threading.Thread(target=thread_function, args=(1,), daemon=True)
     
     print("Programa principal, thread creado, antes de lanzarlo...")
 
@@ -25,3 +34,11 @@ if __name__ == "__main__":
     print("Programa principal, terminando ¿?")
 
     print("\n ==> Tiene %d segundos para abrir otra terminal y ejecutar \" ps -eLf | grep %s | grep -v grep \" " % (DELAY, sys.argv[0]))
+
+
+    x.join()
+    # por qué no termina el hilo principal??
+    print("Hilo principal muriendo... chau")
+
+
+

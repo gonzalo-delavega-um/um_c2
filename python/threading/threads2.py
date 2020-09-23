@@ -5,7 +5,7 @@ import os
 
 
 DELAY=10
-ESPERAR=False
+ESPERAR=True
 
 def thread_function(name):
     print("HILO: Iniciando hilo %s____________________________________________ mi PID es %d, Thread %d" % (name, os.getpid(), threading.get_ident()))
@@ -34,6 +34,8 @@ if __name__ == "__main__":
     
     if(ESPERAR):
         x.join()
+        print("Ejecutar el ps en terminal...")
+        time.sleep(10)
         print("MAIN: Qué bueno que volviste! Podemos morir juntos ahora xD")
     else:
         print("MAIN: Qué soledad! Mejor me muero...")
