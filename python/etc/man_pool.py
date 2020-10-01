@@ -3,21 +3,25 @@ import multiprocessing, threading, time, getopt, sys
 
 def func(x):
     while True:
+        print("<<<< %s leyendo..." % multiprocessing.current_process().name)
         dato = x.recv()
         if dato==404:
-            print("Proc %s saliendo..." % multiprocessing.current_process().name)
+            print("<<<< Proc %s saliendo..." % multiprocessing.current_process().name)
             break
-        print("Funcion, recibido %s" % str(dato))
+        print("<<<< %s recibiendo %s" % (multiprocessing.current_process().name,str(dato)))
+        print("<<<< %s enviando ok" % multiprocessing.current_process().name)
         x.send("ok  %d (%s)" % (dato,multiprocessing.current_process().name))
 
-
-def server(x, n):
-    print("Server %s recibiendo lista %s" % (threading.current_thread().getName(), str(n)))
+def server(x, n, p):
+    print(">>>>>>>>>> Server %s recibiendo lista %s" % (threading.current_thread().getName(), str(n)))
+    time.sleep(0.01)
     for i in n:
+        print(">>>> %s enviando %d" % (threading.current_thread().getName(), i))
         x.send(i)
-        print("Server %s recibiendo: %s" % (threading.current_thread().getName() ,x.recv()))
+        print(">>>> %s recibiendo: %s" % (threading.current_thread().getName() ,x.recv()))
         time.sleep(1)
     x.send(404)
+    p.join()
 
 
 def split_list(alist, wanted_parts=1):
@@ -29,8 +33,6 @@ def split_list(alist, wanted_parts=1):
 def usage(progname):
     print("\n\tpython3 %s -p <num_proc> -n <num_max>\n\n" % progname)
     sys.exit(2)
-
-
 
 
 if __name__ == "__main__":
@@ -55,10 +57,21 @@ if __name__ == "__main__":
 
     x = list(range(n))
     partes = split_list(x, nproc)
+    print("Partes: "+ str(partes))
+
+    procs = []
+    thr = []
+    pipes = []
+
 
     for part in partes:
         a,b = multiprocessing.Pipe()
         p = multiprocessing.Process(target=func, args=(a,))
-        h = threading.Thread(target=server, args=(b,part))
         p.start()
-        h.start()
+        thr.append(threading.Thread(target=server, args=(b,part, p)))
+        thr[-1].start()
+
+    for h in thr:
+        h.join()
+
+    print("Terminando...")
