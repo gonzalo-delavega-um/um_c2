@@ -6,6 +6,7 @@ num = 0
 l = threading.Lock()
 
 def sumador(n):
+    time.sleep(0.01)
     global num
     l.acquire()
     for i in range(n):

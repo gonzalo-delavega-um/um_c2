@@ -16,6 +16,10 @@ async def main():
     await asyncio.wait([divs1, divs2, divs3])
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-    loop.close()
+#    loop = asyncio.get_event_loop()
+#    loop.run_until_complete(main())
+#    loop.close()
+
+    # new way:
+    print("New way...")
+    asyncio.run(main())

@@ -21,14 +21,16 @@ def is_prime(n):
 
 def main1():
     with concurrent.futures.ProcessPoolExecutor() as executor:
+        input("ver cuantos procs hay...")
         for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
             print('%d is prime: %s' % (number, prime))
+    ## aca no existe el executor
 
 def main2():
-    executor=concurrent.futures.ProcessPoolExecutor()
+    executor=concurrent.futures.ProcessPoolExecutor(max_workers = 2)
     for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
         print('%d is prime: %s' % (number, prime))
-
+    # podemos seguir usando el executor
 
 if __name__ == '__main__':
     main1()
