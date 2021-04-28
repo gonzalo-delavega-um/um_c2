@@ -1,29 +1,32 @@
 
-
+import os
 from multiprocessing import Process
+# import multiprocessing as mp
 
 def testing():
     print("Works")
 
 def square(n):
-    print("The number squares to ",n**2)
+    print(f"The number {n} squares to {n**2}")
 
 def cube(n):
-    print("The number cubes to ",n**3)
+    print(f"The number {n} cubes to {n**3}")
 
 def multip(n,m):
-    print("The product is: ", n*m)
+    print(f"The product of {n} and {m} is: {n*m}")
 
 if __name__=="__main__":
 
     p = []
-    p[0]=Process(target=square,args=(7,))
-    p[1]=Process(target=cube,args=(3,))
-    p[2]=Process(target=testing)
-    p[3]=Process(target=multip,args=(4,5))
+    p.append(Process(target=square,args=[7,]))
+    p.append(Process(target=cube,args=(3,)))
+    p.append(Process(target=testing))
+    p.append(Process(target=multip,args=(4,5)))
 
     for i in range(4):
         p[i].start()
+
+    os.system("ps ft")
 
     for i in range(4):
         p[i].join()
