@@ -1,7 +1,7 @@
 import multiprocessing
 import time, os
 
-def evenno(numbers, q):
+def funcion(numbers, q):
     for n in numbers:
         if n % 2 == 0:
             q.put("PID: %s, valor: %d" %(os.getpid(),n))
@@ -10,8 +10,8 @@ def evenno(numbers, q):
    
 if __name__ == "__main__":
    q = multiprocessing.Queue()
-   p1 = multiprocessing.Process(target=evenno, args=(range(10), q))
-   p2 = multiprocessing.Process(target=evenno, args=(range(10,20), q))
+   p1 = multiprocessing.Process(target=funcion, args=(range(10), q))
+   p2 = multiprocessing.Process(target=funcion, args=(range(10,20), q))
    p1.start()
    p2.start()
    while q:

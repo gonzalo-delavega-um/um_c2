@@ -13,7 +13,7 @@ if __name__ == "__main__":
    p.join()
    while q:
        try:
-           print(q.get(True, 1))
+            print(q.get(True, 3))
        except Exception as e:
-           print("Nada en la cola... saliendo.")
+           print("Nada en la cola... saliendo")
            break

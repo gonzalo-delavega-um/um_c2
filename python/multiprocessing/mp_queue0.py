@@ -15,7 +15,6 @@ if __name__ == '__main__':
     p = Process(target=f, args=(q,))
     p.start()
     p.join()
-    print("El contenido de la cola es: %s" % q.get())
-    print(q.get())   
-    print(q.get())   
-    print(q.get())   
+    print("El contenido de la cola es:")
+    for i in range(4):
+        print(q.get())   

@@ -5,9 +5,10 @@ import time, os
 def escritor(numbers,q,pipe_w):
     print("Escritor escribiendo %d" % os.getpid())
     for i in numbers:
+        print("Escritor insertando datos...")
         q.put("insertando... %d" % i)
         time.sleep(1)
-    pipe_w.send("hola")
+    pipe_w.send("Empeza a leer...")
     pipe_w.close()
     print("Terminando hijo %d..." % os.getpid())
 

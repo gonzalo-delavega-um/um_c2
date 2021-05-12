@@ -1,10 +1,11 @@
 from multiprocessing import Process, Pipe
+import time
 
 def f(conn):
     conn.send([42, None, 'hello'])
     print("H: Hijo recibiendo: "+conn.recv())
     conn.send("hola mundo")
-    print(conn.recv())
+    print("H: "+conn.recv())
     conn.close()
 
 if __name__ == '__main__':
@@ -13,6 +14,10 @@ if __name__ == '__main__':
     p.start()
     print ("P: "+str(parent_conn.recv()))   # prints "[42, None, 'hello']"
     parent_conn.send("enviando desde el padre...")
+    for i in range(5):
+        print("Padre haciendo cosas de padre...")
+        time.sleep(1)
+
     print ("P: "+parent_conn.recv())
-    print(parent_conn.send("hola"))
+    parent_conn.send("hola")
     p.join()
