@@ -7,9 +7,10 @@ import sys
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = socket.gethostname()                           
+#host = socket.gethostname()                           
+host = sys.argv[1]
 
-port = int(sys.argv[1])
+port = int(sys.argv[2])
 
 # connection to hostname on the port.
 s.connect((host, port))                               
