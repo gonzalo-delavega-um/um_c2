@@ -12,12 +12,15 @@ host = sys.argv[1]
 
 port = int(sys.argv[2])
 
+print("Haciendo el connect")
 # connection to hostname on the port.
-s.connect((host, port))                               
+s.connect((host, port))   
+print("Handshake realizado con exito!")
 
 # Receive no more than 1024 bytes
+print("Esperando datos desde el server")
 msg = s.recv(1024)                                     
-
-s.close()
 #print (msg.decode('ascii'))
 print (msg.decode('utf-8'))
+s.close()
+print("Cerrando conexion")

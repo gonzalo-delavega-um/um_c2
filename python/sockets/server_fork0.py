@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import socket, sys, time
+import socket, sys, time, os
 
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -30,11 +30,14 @@ while True:
 
     print("Got a connection from %s" % str(addr))
     
-    msg = 'Hola Mundo'+ "\r\n"
-    #clientsocket.send(msg.encode('ascii'))
-    print("Esperando un tiempito...")
-    time.sleep(50)
-    print("Enviando mensaje...")
-    clientsocket.send(msg.encode('utf-8'))
-    print("Cerrando conexion...")
-    clientsocket.close()
+    ret = os.fork()
+    if not ret: # hijo
+        msg = 'Hola Mundo'+ "\r\n"
+        #clientsocket.send(msg.encode('ascii'))
+        print("Esperando un tiempito...")
+        time.sleep(20)
+        print("Enviando mensaje...")
+        clientsocket.send(msg.encode('utf-8'))
+        print("Cerrando conexion...")
+        clientsocket.close()
+        exit()

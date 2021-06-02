@@ -16,6 +16,7 @@ def mp_server(c):
 # create a socket object
 # crea un objeto tipo socket para usarlo en la comunicación
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # get local machine name
 #host = socket.gethostname()
