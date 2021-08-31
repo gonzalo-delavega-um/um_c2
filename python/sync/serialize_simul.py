@@ -5,12 +5,12 @@ balance = 0
 
 def deposit(amount):
     print ("deposito")
+    time.sleep(1)
     global balance
     balance = balance + amount
     print("balance: %d" % balance)
 
 def extract(amount):
-    time.sleep(5)
     global balance
     print ("extraccion")
     balance = balance - amount
@@ -20,9 +20,9 @@ def extract(amount):
 if __name__ == "__main__":
     th = []
     th.append(threading.Thread(target=deposit, args=(30000,)))
-    th[-1].start()
     th.append(threading.Thread(target=extract, args=(8000,)))
-    th[-1].start()
+    th[1].start()
+    th[0].start()
     
     for i in th:
         i.join()
