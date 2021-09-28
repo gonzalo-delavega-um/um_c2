@@ -32,10 +32,12 @@ if __name__ == "__main__":
         # Activate the server; this will keep running until you
         # interrupt the program with Ctrl-C
 
-        server_thread = threading.Thread(target=server.serve_forever)
+#        server_thread = threading.Thread(target=server.serve_forever)
 
-        server_thread.daemon = True
-        server_thread.start()
+#        server_thread.daemon = True
+#        server_thread.start()
+
+        server.serve_forever()
 
         # to wait connections
         try:

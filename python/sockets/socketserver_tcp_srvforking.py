@@ -35,8 +35,12 @@ if __name__ == "__main__":
         # interrupt the program with Ctrl-C
 
         # 
-        server_fork = multiprocessing.Process(target=server.serve_forever)
+        #server_fork = multiprocessing.Process(target=server.serve_forever)
 
-        server_fork.daemon = True
-        server_fork.start()
+        #server_fork.daemon = True
+        #server_fork.start()
+        #server.shutdown()
+        server.handle_request()
+#        server.serve_forever()
         server.shutdown()
+

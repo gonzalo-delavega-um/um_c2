@@ -28,3 +28,12 @@ if __name__ == "__main__":
 
         # 
         server.serve_forever()
+
+
+"""
+
+server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)
+server.serve_forever()
+server.handle_request()
+
+"""
