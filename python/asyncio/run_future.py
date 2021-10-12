@@ -6,7 +6,7 @@ async def set_after(fut, delay, value):
 
     # Set *value* as a result of *fut* Future.
     fut.set_result(value)
-    print("almacenando resultado (espera %d)" % delay)
+    print("almacenando resultado (espera %d, (%s))" % (delay, value))
 
 async def main():
     # Get the current event loop.
@@ -21,9 +21,9 @@ async def main():
     # We are using the low-level "loop.create_task()" API here because
     # we already have a reference to the event loop at hand.
     # Otherwise we could have just used "asyncio.create_task()".
-    loop.create_task( set_after(fut1, 2, '... world primera') )
-    loop.create_task( set_after(fut2, 5, '... world segunda') )
-    loop.create_task( set_after(fut3, 3, '... world tercera') )
+    loop.create_task( set_after(fut1, 2, '... primera') )
+    loop.create_task( set_after(fut2, 5, '... segunda') )
+    loop.create_task( set_after(fut3, 3, '... tercera') )
 
     print('hello ...')
 

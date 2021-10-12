@@ -7,7 +7,7 @@ async def encontrar_divisibles(rango, div_por):
     for i in range(rango):
         if i % div_por == 0:
             encontrado.append(i)
-        if i % 50000 == 1:
+        if i % 50000 == 0:
             await asyncio.sleep(0.0001)
     print("Listo con nums en el rango {} divisibles por {}".format(rango, div_por))
     return encontrado
@@ -19,7 +19,8 @@ async def main():
     print("esperando....")
     time.sleep(1)
     resultado = await asyncio.gather(divs1, divs2, divs3)
-    return divs1,divs2,divs3
+    #return divs1,divs2,divs3
+    return resultado
 
 
 if __name__ == '__main__':

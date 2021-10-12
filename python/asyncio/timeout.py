@@ -3,7 +3,7 @@ async def eternity():
     # Sleep for one hour
     print(asyncio.current_task())
     print(asyncio.all_tasks())
-    await asyncio.sleep(3600)
+    await asyncio.sleep(110)
     print('yay!')
 
 async def main():

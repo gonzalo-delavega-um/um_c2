@@ -8,9 +8,6 @@ socketserver.TCPServer.allow_reuse_address = True
 myhttphandler = http.server.SimpleHTTPRequestHandler
 
 
-class ForkedTCPServer(socketserver.ForkingMixIn, socketserver.TCPServer):
-   pass 
-
 httpd = socketserver.TCPServer(("", PORT), myhttphandler)
 
 print(f"Opening httpd server at port {PORT}")

@@ -3,7 +3,7 @@ import os
 
 async def count():
     print("One %d" % os.getpid())
-    await asyncio.sleep(100)
+    await asyncio.sleep(1)
     print("Two %d" % os.getpid())
 
 async def main():

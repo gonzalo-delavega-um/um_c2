@@ -40,7 +40,7 @@ if __name__ == "__main__":
         #server_fork.daemon = True
         #server_fork.start()
         #server.shutdown()
-        server.handle_request()
-#        server.serve_forever()
+#        server.handle_request()
+        server.serve_forever()
         server.shutdown()
 
