@@ -14,4 +14,4 @@ def func(urls):
         fetch_url.delay(url)
 
 if __name__ == "__main__":
-    func(["http://duckduckgo.com", "https://juncotic.com", "https://mstdn.io", "https://diasp.eu", "http://um.edu.ar"])
+    func(["http://duckduckgo.com", "https://juncotic.com", "https://mstdn.io", "https://diasp.eu", "https://startpage.com"])

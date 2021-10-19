@@ -9,4 +9,4 @@ def func(urls):
     print("It took", time.time() - start, "seconds")
 
 if __name__ == "__main__":
-    func(["http://duckduckgo.com", "https://juncotic.com", "https://mstdn.io", "https://diasp.eu", "http://um.edu.ar"])
+    func(["http://duckduckgo.com", "https://juncotic.com", "https://mstdn.io", "https://diasp.eu", "https://startpage.com"])
