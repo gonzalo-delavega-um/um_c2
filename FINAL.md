@@ -13,7 +13,7 @@ El código debe solucionar un problema haciendo uso de las herramientas vistas e
 * Uso de cola de tareas distribuidas
 
 Como aspectos opcionales adicionales puede considerarse:
-* Despliegue en contenedores Docker (opcional)
+* Despliegue en contenedores Docker
 * Parseo de argumentos por línea de comandos
 * Almacenamiento de datos en bases de datos
 
@@ -25,3 +25,6 @@ El código deberá ser presentado en un repositorio GIT (o un subdirectorio del 
 * **README**: contendrá la ayuda y uso básico de la aplicación.
 * **README.info**: contendrá un breve informe sobre las decisiones principales de diseño del sistema, y su justificación (ej, por qué un determinado modelo de datos, o tipo de almacenamiento, o uso de multiproceso/multithread, etc).
 * **README.todo**: contendrá una lista detallada de mejoras y posibles nuevas características/features del sistema para futuras versiones.
+
+### Nota:
+El código deberá ser desarrollado de manera incremental, por lo que se valoran cambios progresivos (commits) en el repositorio de software durante todo el proceso de desarrollo.
