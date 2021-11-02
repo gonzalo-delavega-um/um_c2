@@ -22,5 +22,9 @@ Instalar Celery:
 		usar delay() para meter tareas en el redis
 
 	
-
-
+Instalacion docker:
+https://docs.docker.com/engine/install/ubuntu/
+	agregar su usuario al grupo docker:
+	sudo gpasswd -a $USER docker
+	su - $USER
+	id <- deberian ver el grupo docker
