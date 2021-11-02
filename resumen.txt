@@ -30,6 +30,9 @@ fifo (named pipe)
 	memoria secundaria (archivo en disco)
 	conecta a procesos que conocen el path/ruta al archivo
 
+Memoria compartida (value, array)
+	segmentos de memoria compartidos entre procesos relacionados
+
 Socket
 	inet (cliente / servidor) Internet
 		DGRAM -> udp (datagrama) - los nodos envian y si llega bien, si no, también | no confiable
@@ -38,7 +41,7 @@ Socket
 			http/https, ssh, smtp, imap, pop, xmpp, dns (transferencia de zona)...
 	unix -> socket en archivo
 
-	socket + fork / multiprocessing / subprocess / threading
+	socket + fork / multiprocessing / subprocess / threading / socketserver / asyncio
 	
 	Resumen de las funciones:
 		STREAM:
@@ -46,7 +49,8 @@ Socket
 				crear el socket (socket.socket)
 				cargar host y puerto
 				asociar host y puerto con el socket -> socket.bind()
-				atender conexiones -> socketcreado.accept() . . . . . . . 
+				establecer la cola de backlog (clientes en espera de handshake)
+				atender conexiones -> socketcreado.accept() . . 
 				socket_cliente.recv() y socket_cliente.send()
 
 			Cliente:
@@ -65,6 +69,9 @@ Socket
 				crear el socket -> socket.socket()
 				cargar host y puerto del servidor al que conectarse
 				leer y enviar info con socket_creado.recvfrom() y socket_creado.sendto()
+
+	SSL/TLS: seguridad en comunicación
+		certificados x509.... (openssl)
 
 Multiprocessing
 	creación de procesos hijos
@@ -92,7 +99,8 @@ Concurrent.Futures
 		ThreadPoolExecutor  /
 
 	Ejecutores que administran workers
-		
+
+Celery(caso de pool de procesos distribuido/sincronizado)
 
 asyncio
 	manejo asincronico de rutinas
@@ -139,13 +147,18 @@ asyncio
 
 
 Celery y las colas de tareas
-	manejador de tareas, sistema de procesamiento de tareas
+	pool of workers: manejador de tareas, sistema de procesamiento de tareas
 
 	manejador de cola de mensajes, varias alternativas:
 		RabbitMQ
 		Redis <--
+			broker: cola de tareas a ejecutar
+			backend: cola de resultados de tareas
 		Otros (Amazon sqs)
 	
 	Cuándo usar celery?
 		* tareas que requieren mas tiempo, para no romper ciclo pregunta-respuesta
 		* romper tareas largas consistentes en varias tareas cortas
+
+Docker (intro)
+	despliegue de la app

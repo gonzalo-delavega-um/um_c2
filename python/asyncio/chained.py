@@ -34,8 +34,9 @@ async def main(*args):
 
 if __name__ == "__main__":
     import sys
-    random.seed(414)
-    args = [1, 2, 3] if len(sys.argv) == 1 else map(int, sys.argv[1:])
+    random.seed(417)
+    args = [1, 2, 3] if len(sys.argv) == 1 else list(map(int, sys.argv[1:]))
+    print(args)
     start = time.perf_counter()
     asyncio.run(main(*args))
     end = time.perf_counter() - start
