@@ -21,7 +21,7 @@ Como aspectos opcionales adicionales puede considerarse:
 La aplicación a desarrollar deberá ser acordada previamente con el profesor de la cátedra.
 Una vez desarrollada, deberá ser presentada al profesor al menos una semana antes de la mesa de examen final, para que éste pueda visarla y dar el visto bueno al alumno.
 El código deberá ser presentado en un repositorio GIT (o un subdirectorio del repositorio git del alumno), bien organizado, y con el agregado de los siguientes archivos markdown:
-* *INSTALL*: contendrá las instrucciones para clonar e instalar/lanzar la aplicación.
-* *README*: contendrá la ayuda y uso básico de la aplicación.
-* *README.info*: contendrá un breve informe sobre las decisiones principales de diseño del sistema, y su justificación (ej, por qué un determinado modelo de datos, o tipo de almacenamiento, o uso de multiproceso/multithread, etc).
-* *README.todo*: contendrá una lista detallada de mejoras y posibles nuevas características/features del sistema para futuras versiones.
+* **INSTALL**: contendrá las instrucciones para clonar e instalar/lanzar la aplicación.
+* **README**: contendrá la ayuda y uso básico de la aplicación.
+* **README.info**: contendrá un breve informe sobre las decisiones principales de diseño del sistema, y su justificación (ej, por qué un determinado modelo de datos, o tipo de almacenamiento, o uso de multiproceso/multithread, etc).
+* **README.todo**: contendrá una lista detallada de mejoras y posibles nuevas características/features del sistema para futuras versiones.
