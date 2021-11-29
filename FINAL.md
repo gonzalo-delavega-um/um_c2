@@ -5,7 +5,7 @@ Para poder rendir el examen final es requisito haber regularizado la materia a f
 
 El examen final consistirá en la exposición de un código integrador desarrollado por el alumno, cuyo tema será acordado previamente con el profesor.
 
-Para definir los requisitos y alcances del trabajo, **antes de entrar a codear** será necesario plantear una arquitectura del proyecto, problema que solucionará, tareas que ejecutarían, entidades, herramientas de sincronismo concurrencia, justificaciones. Una vez que el tema ha sido discutido y aprobado para su desarrollo, se acordará un repositorio GIT donde se irán cargando los cambios periódicos en su desarrollo.
+Para definir los requisitos y alcances del trabajo, **antes de entrar a codear** será necesario plantear una arquitectura del proyecto, problema que solucionará, tareas que ejecutarían, entidades, herramientas de sincronismo concurrencia, justificaciones. Una vez que el **tema ha sido discutido y aprobado** para su desarrollo, se acordará un repositorio GIT donde se irán cargando los cambios periódicos en su desarrollo.
 
 ### Consideraciones del código:
 El código debe solucionar un problema haciendo uso de las herramientas vistas en clase. Debe incluir aspectos como:
