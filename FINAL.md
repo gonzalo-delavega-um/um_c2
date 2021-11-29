@@ -5,6 +5,8 @@ Para poder rendir el examen final es requisito haber regularizado la materia a f
 
 El examen final consistirá en la exposición de un código integrador desarrollado por el alumno, cuyo tema será acordado previamente con el profesor.
 
+Para definir los requisitos y alcances del trabajo, **antes de entrar a codear** será necesario plantear una arquitectura del proyecto, problema que solucionará, tareas que ejecutarían, entidades, herramientas de sincronismo concurrencia, justificaciones.
+
 ### Consideraciones del código:
 El código debe solucionar un problema haciendo uso de las herramientas vistas en clase. Debe incluir aspectos como:
 * Uso de Sockets con conexión de clientes múltiples de manera concurrente.
@@ -18,7 +20,7 @@ Como aspectos opcionales adicionales puede considerarse:
 * Almacenamiento de datos en bases de datos
 
 ### Presentación
-La aplicación a desarrollar deberá ser acordada previamente con el profesor de la cátedra.
+La aplicación a desarrollar deberá ser **acordada previamente** con el profesor de la cátedra.
 Una vez desarrollada, deberá ser presentada al profesor al menos una semana antes de la mesa de examen final, para que éste pueda visarla y dar el visto bueno al alumno.
 El código deberá ser presentado en un repositorio GIT (o un subdirectorio del repositorio git del alumno), bien organizado, y con el agregado de los siguientes archivos markdown:
 * **INSTALL**: contendrá las instrucciones para clonar e instalar/lanzar la aplicación.
