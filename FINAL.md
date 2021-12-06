@@ -33,11 +33,11 @@ El tribunal también podrá solicitar pequeños *fixes* de bugs detectados duran
 
 ### Notas:
 
-* El código deberá ser desarrollado de manera incremental, por lo que se valoran cambios progresivos (commits) en el repositorio de software durante todo el proceso de desarrollo. En la medida que vayan desarrollando la app, vayan commiteando seguido, no esperen a tener una versión funcional para commitear, no importa si funciona o no, commiteen igual! Eso les sirve para que podamos charlar dificultades, inconvenientes, para que yo pueda ver la evolución del proyecto, y de paso, a ustedes les queda un backup de todo lo que van haciendo (ya no es excusa el "se me rompió el disco, me robaron la compu y tenía todo ahí, etc... tenemos git, aprovechenlo!).
-
 * No tiene fecha **límite de presentación** (mientras no se les venza la regularidad de la materia :P ). Pueden presentarlo a lo largo del año. El único requisito es que, una vez que decidan en qué mesa van a rendir, una semana antes deben tener el código completo.
 
 * Antes de ponerse a codear les tengo que aprobar la app que piensan desarrollar. Dentro de sus repositorios git creen un directorio llamado **final**, y ahí dentro, un **FINAL.md** que incluya un *diagrama de la arquitectura* de la app que van a desarrollar (piezas de software, nodos en la red, quién se conecta con quién, cómo, qué funcionalidad tienen cada pieza, etc. Pueden armar el diagrama, y un *texto explicativo* sobre qué hace cada cosa, lo más detallado posible.
+
+* El código deberá ser desarrollado de **manera incremental**, por lo que se valoran cambios progresivos (commits) en el repositorio de software durante todo el proceso de desarrollo. En la medida que vayan desarrollando la app, vayan commiteando seguido, no esperen a tener una versión funcional para commitear, no importa si funciona o no, commiteen igual! Eso les sirve para que podamos charlar dificultades, inconvenientes, para que yo pueda ver la evolución del proyecto, y de paso, a ustedes les queda un backup de todo lo que van haciendo (ya no es excusa el "se me rompió el disco, me robaron la compu y tenía todo ahí, etc... tenemos git, aprovechenlo!).
 
 La idea de ese FINAL.md es que podamos quedar, ustedes y yo, con una idea fina de lo que van a hacer. A mi me sirve para saber que tienen noción de los alcances de sus apps, lo que tienen que armar, y a ustedes les sirve de guía para no *irse por las ramas* y acotarse a eso. Igualmente durante el desarrollo pueden charlarse cambios, pero lo ideal es que quede lo más definido posible de entrada.
 
