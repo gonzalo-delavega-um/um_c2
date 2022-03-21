@@ -11,6 +11,6 @@ while True:
   else:
     number = int(number)
     if number == 0:
-      print(sys.stderr + "0 no tiene inverso")
+      print("0 no tiene inverso", file=sys.stderr)
     else:
       print("El inverso de %d es %f" % (number, 1.0/number) )
