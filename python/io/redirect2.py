@@ -1,7 +1,7 @@
 import sys
 
 save_stderr = sys.stderr
-fh = open("errors.txt","w")
+fh = open("/tmp/errors.txt","w")
 sys.stderr = fh
 
 x = 10 / 0
