@@ -13,13 +13,12 @@ El código debe solucionar un problema haciendo uso de las herramientas vistas e
 * Uso de mecanismos de IPC
 * Uso de asincronismo de I/O
 * Uso de cola de tareas distribuidas
+* Parseo de argumentos por línea de comandos
 
 Otros aspectos adicionales que puede considerarse:
 * Despliegue en contenedores Docker
-* Parseo de argumentos por línea de comandos
 * Almacenamiento de datos en bases de datos
 * Incorporación de entorno visual (web, desktop, etc).
-* Despliegue en contenedores Docker.
 
 ### Definiendo los detalles del proyecto
 
@@ -37,7 +36,7 @@ La intención es interactuar con los profesores para definir y depurar las propu
 Una vez que la aplicación a desarrollar sea **aprobada** con el profesor de la cátedra, podrá comenzar el desarrollo de la misma.
 Durante el desarrollo de la app deberán realizarse commits periódicos en el repo, que reflejen los cambios y progreso del desarrollo.
 Asimismo, deberán consultarse los inconvenientes que surjan durante el desarrollo, con la intención de ajustar detalles de los requisitos planteados inicialmente (*doc*).
-Una vez desarrollada la app, deberá ser presentada al profesor al menos una semana antes de la mesa de examen final (si puede ser antes mejor, para evitar cambios de ultimo momento), para que éste pueda visarla y dar el visto bueno al alumno.
+Una vez desarrollada la app, deberá ser presentada al profesor al menos una semana antes de la mesa de examen final (si puede ser antes mejor, para evitar cambios de ultimo momento), para que éste pueda visarla y permitirle inscribirse a la mesa.
 
 Deberán añadirse algunos archivos markdown adicionales en el repositorio git del proyecto para poder presentarlo en el examen:
 * **INSTALL**: contendrá las instrucciones para clonar e instalar/lanzar la aplicación, o despliegue de la misma.
