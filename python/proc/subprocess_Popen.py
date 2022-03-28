@@ -51,7 +51,8 @@ ejecuta un comando y usa al archivo como salida estandar
 """
 def ej3():
     fd = open("/tmp/file", "w+")
-    sp.Popen(["ls", "-l"], stdout=fd)
+    fde = open("/tmp/filee", "w+")
+    sp.Popen(["ip", "asfdaf"], stdout=fd, stderr=fde)
 
 """
 carga un comando como "proc" usando stdout a pipe, y luego lee su contenido
@@ -131,6 +132,14 @@ def ej12():
     for line in lines:
         print(line)
 
+def ej13():
+    # subprocess.run
+    """
+    retorna un obj de tipo CompletedProcdess
+    no captura la salida
+    returncode tiene el valor de retorno del comando
+    """
+    sp.run(["sleep","10"])
 
 funcion = sys.argv[1]
 print("========================================== Ejecutando %s" % funcion)
