@@ -22,7 +22,7 @@ fork retorna:
 
 def main():
     #fork()
-    True or fork() 
+    fork() or fork() 
 
     print("Forkeando!!", getpid())
     time.sleep(100)
@@ -30,3 +30,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
