@@ -139,7 +139,8 @@ def ej13():
     no captura la salida
     returncode tiene el valor de retorno del comando
     """
-    sp.run(["sleep","10"])
+    resultado = sp.call(["sleep","5"])
+    print(resultado)
 
 funcion = sys.argv[1]
 print("========================================== Ejecutando %s" % funcion)
