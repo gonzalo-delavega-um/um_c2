@@ -65,7 +65,7 @@ def ej4():
 # creo un proc hijo con popen y el padre espera con wait
 def ej5():
     fin=sp.Popen(["sleep", "3"])
-    #fin.wait()
+    fin.wait()
     print("terminando...")
 
 
@@ -92,7 +92,7 @@ def ej7():
 def ej8():
     fin = sp.Popen(["cat"], stdin=sp.PIPE, stdout=sp.PIPE)
     fin.stdin.write(b"hola")
-    print(fin.communicate()[0])
+    print(fin.communicate())
 
 
 """
@@ -101,7 +101,7 @@ el universal_newlines respeta los saltos de linea
 """
 def ej9():
     p1 = sp.Popen(["ip", "a"],stdout=sp.PIPE)
-    p2 = sp.Popen(["grep", "inet"],stdin=p1.stdout,stdout=sp.PIPE,stderr=sp.PIPE, universal_newlines=True)
+    p2 = sp.Popen(["grep", "inet"],stdin=p1.stdout,stdout=sp.PIPE,stderr=sp.PIPE)
     p1.stdout.close()
     out, err = p2.communicate()
 

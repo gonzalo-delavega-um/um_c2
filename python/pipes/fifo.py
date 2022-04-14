@@ -20,13 +20,14 @@ def child_v2( ):
     pipeout = open(pipe_name, 'w')
     counter = 0
     while True:
-        pipeout.write("Number %03d\n" % counter)
+        pipeout.write("Number %05d\n" % counter)
         counter = (counter+1) % 5
         pipeout.flush()
         time.sleep(1)
 
 def parent( ):
     pipein = open(pipe_name, 'r')
+    time.sleep(10)
     while True:
         line = pipein.readline()[:-1]
         print('Parent %d got "%s" at %s' % (os.getpid(), line, time.time( )))
