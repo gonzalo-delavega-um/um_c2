@@ -1,13 +1,14 @@
 
 from time import sleep
-import signal
+import signal, os
 
 def funcion_USR2(s, frame):
     print("Recibiendo señal USR2 (%d)" % s)
+    print("Frame: ", frame)
 
 
 def main():
-    
+    print("kill -USR2 ", os.getpid()) 
     # -9 -2 -USR1/2 -STOP
   
     # sig stop y sig kill no pueden modificarse!
@@ -22,6 +23,9 @@ def main():
     print("Señal STOP: " + str(signal.getsignal(signal.SIGSTOP)))
     print("Señal KILL: " + str(signal.getsignal(signal.SIGKILL)))
 
+    sleep(10)
+    print("primera espera")
+    sleep(10)
     sleep(100)
 
     print("Saliendo...")

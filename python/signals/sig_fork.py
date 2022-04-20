@@ -2,10 +2,11 @@
 import os,time,signal
 
 def handler_padre(s,f):
-    print("Padre... mensaje... PID: %d (PPID %d" % (os.getpid(), os.getppio()))
+    print("Padre... mensaje... PID: %d (PPID %d" % (os.getpid(), os.getppid()))
 
 def handler_hijo(s,f):
     print("Hijo... mensaje... PID: %d (PPID %d" % (os.getpid(),os.getppid()))
+    os.kill(os.getppid(), signal.SIGUSR1)
     # eso para poder distinguirlos xD
     # lo voy a correr y desde otra terminal le voy a mandar el USR1 al padre y al hijo para que veamos.
 
