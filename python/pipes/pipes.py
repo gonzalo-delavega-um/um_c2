@@ -32,7 +32,7 @@ def f1():
         w = os.fdopen(w, 'w')
         # w es un obj archivo abierto conectado con el fd w
         print("Child writing")
-        w.write("Text written by child...\n")
+        w.write("Text written by child...\n esto va al limbo\n")
         w.close()
         print("Child closing")
         sys.exit(0)
@@ -68,4 +68,4 @@ def f2():
             
     
 
-f2()
+f0()
