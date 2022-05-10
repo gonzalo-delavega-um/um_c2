@@ -15,10 +15,10 @@ if __name__=="__main__":
     p1=Process(target=child1)
     p1.run()
 #    child1()
-#    input("seguimos...")
+    input("seguimos...")
     print("========================================================")
     print("Parent ID",os.getpid())
-#    p1.start()
+    p1.start()
     for i in range(10):
         print("Padre esperando a que el hijo muera...")
         time.sleep(1)

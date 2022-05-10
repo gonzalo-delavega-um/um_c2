@@ -8,8 +8,12 @@
 from multiprocessing import Pool, TimeoutError
 import time
 import os
+import random
 
 def f(x):
+    valor = random.randint(1,3)
+    #time.sleep(valor)
+    print("calculando %d (random: %d)" % (x,valor))
     return x*x
 
 if __name__ == '__main__':
@@ -17,6 +21,7 @@ if __name__ == '__main__':
 
     input("Evaluamos la funcion f con los valores del 0 al 9:")
     print(pool.map(f, range(10)))
+    # f(0), f(1), ... f(9)
 
     input("Hacemos lo mismo, pero de manera desordenada")
     for i in pool.imap_unordered(f, range(10)):
