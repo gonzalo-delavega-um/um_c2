@@ -14,6 +14,7 @@ if __name__ == '__main__':
     time.sleep(2)
     print ("Padre 1: " + str(a.recv())) 
     print ("Padre 2: " + str(a.recv())) 
+    print ("Padre 3: " + str(a.recv())) 
 
     p.join()
     print("Hora de morir tambien... Bye... (x.x)")
