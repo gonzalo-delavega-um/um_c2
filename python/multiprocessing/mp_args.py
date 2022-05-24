@@ -23,12 +23,17 @@ if __name__=="__main__":
     p.append(Process(target=testing))
     p.append(Process(target=multip,args=(4,5)))
 
-    for i in range(4):
-        p[i].start()
+#    for i in range(4):
+#        p[i].start()
 
+    os.system("ps ft")
+    for i in range(4):
+        print(p[i].is_alive())
     os.system("ps ft")
 
     for i in range(4):
         p[i].join()
 
+    for i in range(4):
+        print(p[i].is_alive())
     print("We're done")
