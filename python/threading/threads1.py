@@ -11,7 +11,7 @@ import time
 """
 
 
-DELAY=50
+DELAY=5
 
 def thread_function(name):
     print("Iniciando hilo %s" % name)

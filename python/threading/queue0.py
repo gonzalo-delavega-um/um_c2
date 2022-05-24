@@ -1,8 +1,8 @@
 
 import threading, queue
 
-#q = queue.Queue()   # FIFO
 q = queue.LifoQueue()
+#q = queue.Queue()   # FIFO
 
 def worker():
     while True:
