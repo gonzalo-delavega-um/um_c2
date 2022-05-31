@@ -10,10 +10,11 @@ def perform_computation():
     global shared_resource    
     # Thread A will call this function and manipulate the resource
     print(f'Thread {threading.current_thread().name} - performing some computation....')
+    time.sleep(5)
     shared_resource = True
     print(f'Thread {threading.current_thread().name} - set shared_resource to True!')
     print(f'Thread {threading.current_thread().name} - Finished!')
-    time.sleep(1)
+#    time.sleep(1)
  
 def monitor_resource():
     global shared_resource    
@@ -29,7 +30,7 @@ def monitor_resource():
  
 if __name__ == '__main__':
     a = threading.Thread(target=perform_computation, name='A')
-    b = threading.Thread(target=monitor_resource, name='B')
+    b = threading.Thread(target=monitor_resource, name='B', daemon=True)
  
     # Now start both threads
     a.start()
@@ -37,7 +38,7 @@ if __name__ == '__main__':
 
     # espera a los hilos no daemon
     #a.join()
-    #b.join()
+    b.join()
     print("Finalizando el programa principal")
     # si usan thread daemon usen join()!!
 

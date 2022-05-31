@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     print("MAIN: Iniciando programa principal, antes de crear el thread_______ mi PID es %d, thread %d" % (os.getpid(), threading.get_ident()))
 
-    x = threading.Thread(target=thread_function, args=(1,), daemon=False)
+    x = threading.Thread(target=thread_function, args=(1,), daemon=True) # thread detached
     
     print("MAIN: Programa principal, thread creado, antes de lanzarlo...")
 
