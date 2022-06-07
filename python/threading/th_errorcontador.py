@@ -1,21 +1,31 @@
 import threading, time
 
-NTHREADS=6 # numero de threads
+NTHREADS=5 # numero de threads
 NITER=1000000 # numero de iteraciones
 
 contador=0
 
-def count():
+def count(b, s):
     global contador
     for i in range(NITER):
+        s.acquire()
         tmp = contador
         tmp = tmp+1
+        for i in range(1):
+            pass
         contador = tmp
+        s.release()
 
+#    b.wait()
+    print("Hilo terminando: ", threading.current_thread().name)
+
+
+barrera = threading.Barrier(NTHREADS)
+sema = threading.Semaphore(1)
 
 hilos = []
 for i in range(NTHREADS):
-    hilos.append(threading.Thread(target=count, ))
+    hilos.append(threading.Thread(target=count, args=(barrera,sema)))
     hilos[-1].start()
 
 

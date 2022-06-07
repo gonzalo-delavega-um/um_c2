@@ -5,6 +5,7 @@ max_items = 5
 El container es un recipiente con una capacidad de max_items unidades
 """
 container = BoundedSemaphore(max_items)
+
 def producer(nloops):
     for i in range(nloops):
         time.sleep(random.randrange(2, 5))

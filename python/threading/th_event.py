@@ -9,7 +9,7 @@ def waiter(event, nloops):
         event.wait() # Blocks until the flag becomes true.
         print("Wait completado %s (Event: %s):" % (time.ctime(), event.is_set()))
         event.clear() # Resets the flag.
-        print()
+        print("waiter final: ", event.is_set())
 
 def setter(event, nloops):
     for i in range(nloops):

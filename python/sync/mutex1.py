@@ -16,7 +16,6 @@ def sumador(n):
         aux = aux+1
         num = aux
     l.release()
-
     print("num en sumador vale: %d" % num)
 
 def restador(n):

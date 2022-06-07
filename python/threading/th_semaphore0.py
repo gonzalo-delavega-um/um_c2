@@ -23,5 +23,5 @@ if __name__ == '__main__':
     for num in range(2):
         threading.Thread(target=f, args=(semaforo, num)).start()
 
-    for num in range(2):
-        threading.Thread(target=f_with, args=(semaforo, num)).start()
+#    for num in range(2):
+#        threading.Thread(target=f_with, args=(semaforo, num)).start()
