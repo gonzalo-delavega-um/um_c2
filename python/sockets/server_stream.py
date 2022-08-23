@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-import socket, sys, time
+import socket, sys, time, os, signal
 
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+signal.signal(signal.SIGCHLD, signal.SIG_IGN)
 """
 socket.socket(FamiliaProtocolos, TipoSocket)
     FamiliaProtocolos: AF_INET / AF_UNIX
@@ -25,15 +28,22 @@ serversocket.bind((host, port))
 
 serversocket.listen(5)
 
-clientsocket, addr = serversocket.accept()
-
 while True:
-    # establish a connection
-    data = clientsocket.recv(1024)
-    print("Address: %s " % str(addr))
-    print("Recibido: "+data.decode("ascii"))
-    msg = input('Enter message to send : ')
-    clientsocket.send(msg.encode('ascii'))
+    clientsocket, addr = serversocket.accept()
+
+    hijo = os.fork()
+    if not hijo:
+        # hijo
+        while True:
+            # establish a connection
+            data = clientsocket.recv(1024)
+            if data.decode()[:3] == "bye":
+                print("saliendo")
+                exit(0)
+            print("Address: %s " % str(addr))
+            print("Recibido: "+data.decode("ascii"))
+            msg = input('Enter message to send : ')
+            clientsocket.send(msg.encode('ascii'))
 
 
 
