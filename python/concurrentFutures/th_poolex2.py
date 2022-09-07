@@ -1,7 +1,7 @@
 import concurrent.futures
 import urllib.request
 
-URLS = ['http://www.um.edu.ar/',
+URLS = [
         'http://www.losandes.com.ar/',
         'http://kernel.org/',
         'http://debian.org/',
@@ -14,7 +14,7 @@ def load_url(url, timeout):
 
 
 def main1():
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         # armamos un diccionario con la url y el objeto executor de cada una
         future_to_url = {executor.submit(load_url, url, 60): url for url in URLS}
         for future in concurrent.futures.as_completed(future_to_url):
@@ -27,7 +27,7 @@ def main1():
                 print('%r page is %d bytes' % (url, len(data)))
 
 def main2():
-    executor = concurrent.futures.ThreadPoolExecutor(max_workers=5)
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=3)
 
     future_to_url = {}
     for url in URLS:

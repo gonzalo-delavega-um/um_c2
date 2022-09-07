@@ -40,6 +40,19 @@ def f3(pool, n, a, b):
         print("Resultado: %s" % i.result())
         print(futureses)
 
+def f3wait(pool, n, a, b):
+    futureses = []
+    for i in range(n):
+        s = random.randint(a, b)
+        futureses.append(pool.submit(return_after_n_secs, ("Hola %d, esperando %d secs" % (i, s), s)))
+
+    print("esperando...")
+    wait(futureses)
+
+    for i in futureses:
+        print("Resultado: %s" % i.result())
+        print(futureses)
+
 def f4(pool, a, b):
     mensajes = ["hola", "mundo", "que", "tal", "como", "va", "todo"]
     data = []
@@ -54,9 +67,11 @@ def f4(pool, a, b):
     print(list(resultado))
 
 if __name__=="__main__":
-    pool = ProcessPoolExecutor(7)
+    pool = ProcessPoolExecutor()
     input("Veamos cuantos procs tenemos...")
-#    f1(pool, "holas", 3)
+    f1(pool, "holas", 6)
 #    f2(pool, "holas", 3)
 #    f3(pool, 3, 1, 4)
-    f4(pool, 1, 4)
+#    f3wait(pool, 3, 1, 4)
+#    f4(pool, 1, 4)
+    input("Veamos cuantos procs tenemos al final...")

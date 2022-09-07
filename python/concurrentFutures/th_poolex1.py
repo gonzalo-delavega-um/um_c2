@@ -18,7 +18,7 @@ def con_ascomplete():
         print(x.result())
 
 def con_wait():
-    pool = ThreadPoolExecutor(5)
+    pool = ThreadPoolExecutor()
     futures = []
     for x in range(5):
         futures.append(pool.submit(function, x))

@@ -6,7 +6,7 @@ def return_after_5_secs(message):
     return message
 
 #establecemos el número de hilos, por default son 5
-pool = ThreadPoolExecutor(3)
+pool = ThreadPoolExecutor(4)
 
 # enviamos una tarea al pool
 future = pool.submit(return_after_5_secs, ("hello"))
@@ -16,3 +16,4 @@ print(future.done())
 sleep(6)
 print(future.done())
 print(future.result())
+input("tirá un ps -eLf en otra terminal...")

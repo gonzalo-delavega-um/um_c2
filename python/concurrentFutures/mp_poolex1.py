@@ -31,11 +31,23 @@ def main2():
     for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
         print('%d is prime: %s' % (number, prime))
     # podemos seguir usando el executor
+    executor.shutdown()
+
+def main2_desglosado():
+    executor=concurrent.futures.ProcessPoolExecutor(max_workers = 2)
+
+    futureses = executor.map(is_prime, PRIMES)
+
+    resultados = zip(PRIMES, futureses)
+
+    for number, prime in resultados:
+        print('%d is prime: %s' % (number, prime))
+    # podemos seguir usando el executor
 
 if __name__ == '__main__':
     main1()
     print("Main2 -------------------------------")
-    main2()
+    main2_desglosado()
 
 
 
