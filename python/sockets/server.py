@@ -2,7 +2,7 @@
 import socket, sys, time
 
 # create a socket object
-serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+serversocket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM) 
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 """
     socket.AF_INET -> sockets tcp/ip
@@ -13,8 +13,7 @@ serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 """
 
 # get local machine name
-host = socket.gethostname()                           
-#host = ""
+host = ""
 port = int(sys.argv[1])
 
 # bind to the port
@@ -32,8 +31,6 @@ while True:
     
     msg = 'Hola Mundo'+ "\r\n"
     #clientsocket.send(msg.encode('ascii'))
-    print("Esperando un tiempito...")
-    time.sleep(50)
     print("Enviando mensaje...")
     clientsocket.send(msg.encode('utf-8'))
     print("Cerrando conexion...")
