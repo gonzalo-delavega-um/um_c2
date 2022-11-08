@@ -1,6 +1,6 @@
-import subprocess
+import subprocess, sys
 
-comando = "ip a"
+comando = sys.argv[1]
 
 proceso = subprocess.Popen([comando], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 

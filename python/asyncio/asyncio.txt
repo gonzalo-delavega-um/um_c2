@@ -12,7 +12,7 @@ Asyncio
 		alternativa a threading
 	
 
-Ejemplo ajedrez:
+Ejemplo ajedrez: PyCon 2017 Miguel Grinsbert
 	un ajedrecista contra 24
 	5s en hacer su movimiento
 	el resto: 55s en hacer su movimiento

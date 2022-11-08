@@ -25,13 +25,13 @@ async def handle_echo(reader, writer):
 
 async def main():
     server = await asyncio.start_server(
-        handle_echo, '127.0.0.1', 8888)
+        handle_echo, '0.0.0.0', 1234)
 
     addr = server.sockets[0].getsockname()
-    #print(f'Serving on {addr} {asyncio.current_task()}')
+    print(f'Serving on {addr} {asyncio.current_task()}')
 
-    async with server:
-        print(f"Tareas:\n{asyncio.all_tasks()}")
-        await server.serve_forever()
+#    async with server:
+    print(f"Tareas:\n{asyncio.all_tasks()}")
+    await server.serve_forever()
 
 asyncio.run(main())

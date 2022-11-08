@@ -11,7 +11,8 @@ def add(x, y):
 
 @app.task
 def mipid():
+    time.sleep(0.5)
     return os.getpid()
 
-if __name__ == "__main__":
-    app.start()
+#if __name__ == "__main__":
+#    app.start()

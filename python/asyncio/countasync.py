@@ -1,9 +1,13 @@
 import asyncio
 import os
+import random
 
 async def count():
+    t = random.randint(1,10)
+    print(asyncio.current_task())
+    print("Esperando: %d segundos" % t)
     print("One %d" % os.getpid())
-    await asyncio.sleep(1)
+    await asyncio.sleep(t)
     print("Two %d" % os.getpid())
 
 async def main():

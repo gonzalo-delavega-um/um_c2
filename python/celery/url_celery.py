@@ -1,7 +1,8 @@
 import requests, time
 from celery import Celery
 
-app = Celery('url_celery', broker='redis://localhost:6379/0', backend='redis://localhost:6379')
+#app = Celery('url_celery', broker='redis://localhost:6379/0', backend='redis://localhost:6379')
+app = Celery('url_celery', broker='redis://analytics.juncotic.com:6379/0', backend='redis://analytics.juncotic.com:6379')
 
 @app.task
 def fetch_url(url):

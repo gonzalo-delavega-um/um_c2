@@ -18,6 +18,7 @@ El código debe solucionar un problema haciendo uso de las herramientas vistas e
 Otros aspectos adicionales que puede considerarse:
 * Despliegue en contenedores Docker
 * Almacenamiento de datos en bases de datos
+* Uso de Celery para resolver tareas en paralelo.
 * Incorporación de entorno visual (web, desktop, etc).
 
 ### Definiendo los detalles del proyecto
