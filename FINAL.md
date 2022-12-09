@@ -40,10 +40,10 @@ Asimismo, deberán consultarse los inconvenientes que surjan durante el desarrol
 Una vez desarrollada la app, deberá ser presentada al profesor al menos una semana antes de la mesa de examen final (si puede ser antes mejor, para evitar cambios de ultimo momento), para que éste pueda visarla y permitirle inscribirse a la mesa.
 
 Deberán añadirse algunos archivos markdown adicionales en el repositorio git del proyecto para poder presentarlo en el examen:
-* **INSTALL**: contendrá las instrucciones para clonar e instalar/lanzar la aplicación, o despliegue de la misma.
-* **README**: contendrá la ayuda y uso básico de la aplicación.
-* **README.info**: contendrá un breve informe sobre las decisiones principales de diseño del sistema, y su justificación (ej, por qué un determinado modelo de datos, o tipo de almacenamiento, o uso de multiproceso/multithread, etc).
-* **README.todo**: contendrá una lista detallada de mejoras y posibles nuevas características/features del sistema para futuras versiones.
+* **INSTALL.md**: contendrá las instrucciones para clonar e instalar/lanzar la aplicación, o despliegue de la misma.
+* **README.md**: contendrá la ayuda y uso básico de la aplicación.
+* **INFO.md**: contendrá un breve informe sobre las decisiones principales de diseño del sistema, y su justificación (ej, por qué un determinado modelo de datos, o tipo de almacenamiento, o uso de multiproceso/multithread, etc).
+* **TODO.md**: contendrá una lista detallada de mejoras y posibles nuevas características/features del sistema para futuras versiones.
 
 ### Examen final
 
